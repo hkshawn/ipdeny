@@ -1,7 +1,7 @@
 #!/bin/bash
 while true
 do
-iplist=`netstat -ntu | awk '{print $5}'| cut -d':' -f1| sort |uniq -c |grep -v 'LISTEN|127.0.0.1'| sed 'N;$d;P;D' | awk '{if($1>50)print $2}'`
+iplist=`netstat -ntu | awk '{print $5}'| cut -d':' -f1| sort |uniq -c |grep -v 'LISTEN|127.0.0.1'| sed 'N;$d;P;D' | awk '{if($1>10)print $2}'`
 for ip in $iplist
 do 
   echo $ip
